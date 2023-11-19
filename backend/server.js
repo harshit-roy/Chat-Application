@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const { chats } = require("./Data/data");
 const connectDb = require("./config/db");
 const userRoutes = require("./Routes/userRoutes");
+const chatRoutes = require("./Routes/chatRoutes");
 const { notFound, errorHandler } = require("./middlewares/errormiddleware");
 
 connectDb();
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
