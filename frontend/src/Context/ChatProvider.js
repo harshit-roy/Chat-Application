@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 const ChatContext = createContext();
 
@@ -15,7 +15,9 @@ const ChatProvider = ({ children }) => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
 
-    if (!userInfo) history.push("/");
+    if (!userInfo) {
+      return <Redirect to="/" />;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history]);
 
