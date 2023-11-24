@@ -1,4 +1,6 @@
 import { AddIcon } from "@chakra-ui/icons";
+
+import { Flex } from "@chakra-ui/react";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
@@ -77,7 +79,7 @@ const MyChats = ({ fetchAgain }) => {
           </Button>
         </GroupChatModal>
       </Box>
-      <Box
+      <Flex
         d="flex"
         flexDir="column"
         p={3}
@@ -119,7 +121,7 @@ const MyChats = ({ fetchAgain }) => {
         ) : (
           <ChatLoading />
         )}
-      </Box>
+      </Flex>
     </Box>
   );
 };
